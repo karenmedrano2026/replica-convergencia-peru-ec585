@@ -1,0 +1,4 @@
+"matriz","umbral_km","numero_enlaces","componentes","departamentos_sin_vecinos"
+"Banda de distancia inversa",407.103818624167,148,1,0
+"Queen",NA,104,1,0
+"KNN k=4",NA,96,1,0

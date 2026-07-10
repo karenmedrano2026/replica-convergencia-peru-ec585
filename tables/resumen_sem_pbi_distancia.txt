@@ -1,0 +1,25 @@
+
+Call:errorsarlm(formula = d_rgdpc ~ ln_rgdpc_2007, data = mapa_datos, 
+    listw = W_dist, method = "eigen", zero.policy = TRUE)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.493005 -0.091707 -0.024602  0.132992  0.715629 
+
+Type: error 
+Coefficients: (asymptotic standard errors) 
+               Estimate Std. Error z value     Pr(>|z|)
+(Intercept)    0.001016   0.065078  0.0156       0.9875
+ln_rgdpc_2007 -0.366622   0.073673 -4.9764 0.0000006479
+
+Lambda: 0.30356, LR test value: 1.1313, p-value: 0.2875
+Asymptotic standard error: 0.2642
+    z-value: 1.149, p-value: 0.25057
+Wald statistic: 1.3201, p-value: 0.25057
+
+Log likelihood: 2.387358 for error model
+ML residual variance (sigma squared): 0.04711, (sigma: 0.21705)
+Number of observations: 24 
+Number of parameters estimated: 4 
+AIC: 3.2253, (AIC for lm: 2.3566)
+

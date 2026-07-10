@@ -1,0 +1,25 @@
+
+Call:errorsarlm(formula = d_dev ~ idh_2007, data = mapa_datos, listw = W_dist, 
+    method = "eigen", zero.policy = TRUE)
+
+Residuals:
+       Min         1Q     Median         3Q        Max 
+-0.0473049 -0.0187036  0.0015154  0.0172826  0.0409014 
+
+Type: error 
+Coefficients: (asymptotic standard errors) 
+            Estimate Std. Error z value    Pr(>|z|)
+(Intercept) 0.109407   0.023977  4.5629 0.000005045
+idh_2007    0.171188   0.068403  2.5026     0.01233
+
+Lambda: -0.31663, LR test value: 0.78135, p-value: 0.37673
+Asymptotic standard error: 0.35539
+    z-value: -0.89094, p-value: 0.37296
+Wald statistic: 0.79378, p-value: 0.37296
+
+Log likelihood: 56.62546 for error model
+ML residual variance (sigma squared): 0.00051421, (sigma: 0.022676)
+Number of observations: 24 
+Number of parameters estimated: 4 
+AIC: -105.25, (AIC for lm: -106.47)
+
