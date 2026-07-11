@@ -1,0 +1,452 @@
+\section{Resultados}
+
+\subsection{Evolución de las disparidades departamentales}
+
+La Tabla \ref{tab:estadisticos_descriptivos} presenta los principales
+estadísticos descriptivos del Índice de Desarrollo Humano y del logaritmo del
+PBI real per cápita relativo. El IDH promedio departamental aumentó de 0.3488
+en 2007 a 0.5175 en 2019. La mediana también se desplazó de 0.3424 a 0.5114,
+lo que confirma una mejora generalizada de los niveles de desarrollo humano
+durante el periodo analizado.
+
+El incremento del promedio estuvo acompañado por un aumento de la desviación
+estándar, que pasó de 0.0693 a 0.0840. No obstante, el coeficiente de variación
+disminuyó de 0.1986 a 0.1624. Esto indica que, en relación con el nivel medio
+alcanzado, la dispersión del IDH se redujo. Por tanto, existe evidencia
+descriptiva compatible con convergencia sigma relativa, aunque esta conclusión
+debe contrastarse posteriormente con la regresión de convergencia beta.
+
+En el caso del logaritmo del PBI real per cápita relativo, la media pasó de
+$-0.2144$ en 2007 a $-0.1211$ en 2019, mientras que la mediana aumentó de
+$-0.3496$ a $-0.2253$. La desviación estándar disminuyó de 0.6193 a 0.4750,
+lo cual representa una reducción aproximada de 23.3\% en la dispersión
+absoluta del indicador. El coeficiente de variación no se interpreta para esta
+variable porque su media es negativa y cercana a cero.
+
+Los estadísticos de Jarque--Bera presentan valores de probabilidad superiores
+a 0.05 en todas las variables. En consecuencia, no se rechaza la hipótesis de
+normalidad al nivel de significancia del 5\%. Esta evidencia respalda el empleo
+de métodos paramétricos como primera aproximación, aunque posteriormente se
+incorporan estimaciones no paramétricas para evaluar posibles relaciones no
+lineales.
+
+\begin{table}[H]
+\centering
+\caption{Estadísticos descriptivos de los indicadores departamentales}
+\label{tab:estadisticos_descriptivos}
+\small
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+\textbf{Variable} &
+\textbf{Media} &
+\textbf{Mediana} &
+\textbf{Máximo} &
+\textbf{Mínimo} &
+\textbf{D.E.} &
+\textbf{C.V.} &
+\textbf{Asimetría} &
+\textbf{Curtosis} &
+\textbf{$p$-valor JB} \\
+\midrule
+IDH 2007
+& 0.3488 & 0.3424 & 0.4901 & 0.2147 & 0.0693 & 0.1986
+& 0.2254 & 2.2817 & 0.6979 \\
+
+IDH 2019
+& 0.5175 & 0.5114 & 0.7073 & 0.3838 & 0.0840 & 0.1624
+& 0.5220 & 2.5548 & 0.5251 \\
+
+$\ln$ PBIpc relativo 2007
+& $-0.2144$ & $-0.3496$ & 1.4650 & $-0.9515$ & 0.6193
+& --- & 0.8269 & 3.2388 & 0.2476 \\
+
+$\ln$ PBIpc relativo 2019
+& $-0.1211$ & $-0.2253$ & 1.1337 & $-0.7302$ & 0.4750
+& --- & 0.7989 & 3.0146 & 0.2790 \\
+\bottomrule
+\end{tabular}
+}
+\begin{flushleft}
+\footnotesize
+\textit{Nota.} D.E. = desviación estándar; C.V. = coeficiente de variación;
+JB = prueba de Jarque--Bera. El coeficiente de variación no se presenta para
+el logaritmo del PBI per cápita relativo porque su media es negativa.
+\end{flushleft}
+\end{table}
+
+La evolución distributiva del IDH también puede observarse en la Figura
+\ref{fig:densidad_idh}. La densidad estimada para 2019 se encuentra desplazada
+hacia la derecha respecto de la distribución de 2007, reflejando una mejora
+general de los niveles departamentales. Sin embargo, el desplazamiento no
+implica que todos los departamentos hayan avanzado a la misma velocidad.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{figura_1_densidad_idh.png}
+\caption{Distribución kernel del Índice de Desarrollo Humano, 2007 y 2019}
+\label{fig:densidad_idh}
+\begin{flushleft}
+\footnotesize
+\textit{Nota.} Las curvas representan densidades kernel departamentales.
+El desplazamiento hacia la derecha indica una mejora general de los niveles
+de desarrollo humano.
+\end{flushleft}
+\end{figure}
+
+La Figura \ref{fig:mapas_idh} muestra la distribución territorial del IDH
+inicial y de su cambio acumulado. Los niveles iniciales evidencian diferencias
+persistentes entre los departamentos, mientras que el mapa de variaciones
+permite observar que los avances no se distribuyeron de manera uniforme. La
+existencia de mejoras generalizadas no elimina, por tanto, las diferencias en
+la intensidad con la que cada territorio amplió sus capacidades.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.94\textwidth]{figura_2_mapas_idh.png}
+\caption{Distribución departamental del IDH inicial y su cambio acumulado}
+\label{fig:mapas_idh}
+\begin{flushleft}
+\footnotesize
+\textit{Nota.} El panel inicial representa los niveles departamentales de
+2007; el segundo muestra la variación acumulada entre 2007 y 2019.
+\end{flushleft}
+\end{figure}
+
+\subsection{Autocorrelación espacial global}
+
+Los resultados del índice global de Moran se presentan en la Tabla
+\ref{tab:moran_global}. Ninguno de los estadísticos estimados resulta
+significativo al 5\%. Para la matriz de banda de distancia inversa, el Moran
+del IDH inicial es $-0.0273$ y el correspondiente a su cambio acumulado es
+$-0.0662$. En ambos casos, los valores de probabilidad son ampliamente
+superiores a 0.05.
+
+En el PBI per cápita relativo inicial, el Moran alcanza 0.0692, pero tampoco es
+estadísticamente significativo. El cambio económico presenta un valor de
+$-0.0769$, igualmente no significativo. Por tanto, no se identifica un patrón
+global estable mediante el cual departamentos con valores similares se
+encuentren sistemáticamente próximos entre sí.
+
+Los resultados del IDH se mantienen cuando se utilizan las matrices de
+contigüidad queen y cuatro vecinos más próximos. Esta estabilidad sugiere que
+la ausencia de autocorrelación global no depende exclusivamente de la matriz
+principal. No obstante, la inexistencia de asociación global significativa no
+descarta la presencia de relaciones locales o de heterogeneidad en los
+coeficientes regionales.
+
+\begin{table}[H]
+\centering
+\caption{Índice global de Moran}
+\label{tab:moran_global}
+\small
+\begin{tabular}{llrr}
+\toprule
+\textbf{Variable} &
+\textbf{Matriz} &
+\textbf{Moran $I$} &
+\textbf{$p$-valor} \\
+\midrule
+IDH 2007               & Banda inversa & $-0.0273$ & 0.4443 \\
+Cambio del IDH          & Banda inversa & $-0.0662$ & 0.5796 \\
+$\ln$ PBIpc 2007        & Banda inversa & 0.0692    & 0.1581 \\
+Cambio de $\ln$ PBIpc   & Banda inversa & $-0.0769$ & 0.6265 \\
+IDH 2007                & Queen         & $-0.0690$ & 0.5752 \\
+Cambio del IDH          & Queen         & $-0.0277$ & 0.4525 \\
+IDH 2007                & KNN, $k=4$    & $-0.0713$ & 0.5903 \\
+Cambio del IDH          & KNN, $k=4$    & $-0.0799$ & 0.6194 \\
+\bottomrule
+\end{tabular}
+\begin{flushleft}
+\footnotesize
+\textit{Nota.} La hipótesis nula corresponde a ausencia de autocorrelación
+espacial global. Ningún resultado es significativo al 5\%.
+\end{flushleft}
+\end{table}
+
+El diagrama de dispersión espacial de la Figura \ref{fig:moran_idh} confirma
+que los departamentos se distribuyen entre los distintos cuadrantes sin
+formar un agrupamiento global claramente dominante. La pendiente de la recta
+corresponde al índice de Moran y se mantiene próxima a cero.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.90\textwidth]{figura_3_moran_scatter.png}
+\caption{Diagramas de dispersión de Moran para el IDH}
+\label{fig:moran_idh}
+\begin{flushleft}
+\footnotesize
+\textit{Nota.} Los ejes representan el valor estandarizado del indicador y
+su rezago espacial. La pendiente corresponde al índice global de Moran.
+\end{flushleft}
+\end{figure}
+
+\subsection{Convergencia beta global}
+
+Los resultados de las regresiones globales evidencian comportamientos
+diferenciados entre desarrollo humano e ingreso regional. En la estimación
+OLS del IDH, el coeficiente asociado con el nivel inicial es positivo y
+estadísticamente significativo:
+
+\begin{equation}
+\widehat{\Delta IDH_i}
+=
+0.1115
++
+0.1637 IDH_{i,2007}.
+\end{equation}
+
+El coeficiente de 0.1637 presenta un valor de probabilidad de 0.0355. Esto
+significa que los departamentos con mayor IDH inicial registraron, en promedio,
+incrementos superiores durante 2007--2019. Por consiguiente, no se encuentra
+evidencia de convergencia beta del desarrollo humano. El resultado es más
+compatible con una dinámica de divergencia beta o de persistencia acumulativa,
+a pesar de que el coeficiente de variación disminuyó.
+
+El modelo OLS del IDH alcanza un $R^2$ de 0.1858 y un $R^2$ ajustado de
+0.1488. El nivel explicativo es moderado, lo que indica que una proporción
+importante de las variaciones departamentales responde a factores no incluidos
+en una regresión basada únicamente en el nivel inicial.
+
+En contraste, el coeficiente del PBI real per cápita relativo inicial es
+negativo y altamente significativo:
+
+\begin{equation}
+\widehat{\Delta x_i}
+=
+0.0229
+-
+0.3282 x_{i,2007}.
+\end{equation}
+
+El coeficiente de $-0.3282$ presenta un valor de probabilidad inferior a
+0.001. Esto implica que los departamentos con una posición económica inicial
+más rezagada mejoraron relativamente más que los departamentos inicialmente
+adelantados. Por tanto, se identifica convergencia beta económica durante
+2007--2019.
+
+El modelo económico alcanza un $R^2$ de 0.4404 y un $R^2$ ajustado de 0.4150.
+La velocidad anual implícita de convergencia, calculada a partir del coeficiente
+OLS, es aproximadamente:
+
+\begin{equation}
+v
+=
+-\frac{\ln(1-0.3282)}{12}
+=
+0.0331.
+\end{equation}
+
+Por tanto, la velocidad estimada de convergencia económica es cercana al
+3.3\% anual. Este resultado debe interpretarse como una aproximación promedio
+para el conjunto departamental y no como una tasa uniforme para todos los
+territorios.
+
+\subsection{Modelos espaciales y robustez}
+
+La Tabla \ref{tab:modelos_regresion} compara las estimaciones OLS, SEM y
+Durbin-SEM. En el caso del IDH, el coeficiente inicial permanece positivo y
+significativo bajo todas las especificaciones. Con la matriz de banda inversa,
+el SEM estima un coeficiente de 0.1712, mientras que con la matriz queen el
+valor asciende a 0.1882. Los resultados confirman que la ausencia de
+convergencia beta del IDH no depende del modelo elegido.
+
+El parámetro asociado con el rezago espacial del IDH inicial no es
+significativo en la matriz de distancia. En la especificación queen alcanza
+0.2782 y presenta un valor de probabilidad de 0.0710, por lo que solo sería
+significativo bajo un criterio del 10\%. El AIC más bajo continúa
+correspondiendo al OLS, aunque la diferencia respecto del Durbin-SEM queen es
+reducida.
+
+Para el PBI per cápita relativo, todos los modelos mantienen un coeficiente
+inicial negativo y altamente significativo. En el SEM con banda inversa, el
+coeficiente alcanza $-0.3666$, mientras que en el SEM queen asciende en valor
+absoluto a $-0.3792$. El modelo queen presenta el menor AIC del conjunto
+económico, con un valor de $-1.3505$.
+
+Los coeficientes de los rezagos espaciales del nivel inicial no son
+significativos al 5\%. En la matriz de distancia, el rezago del PBI inicial
+alcanza un valor de 0.2323 con $p=0.0932$, mientras que en la matriz queen el
+coeficiente es 0.1979 con $p=0.2704$. En consecuencia, la evidencia de
+desbordamientos directos provenientes del nivel inicial de los departamentos
+vecinos es limitada.
+
+La comparación entre matrices muestra que la importancia de la dependencia
+espacial es sensible a la definición de vecindad. La banda inversa no mejora el
+AIC respecto del OLS, mientras que la contigüidad queen produce una mejora
+considerable en el modelo económico. Por ello, la conclusión central se apoya
+en la estabilidad del coeficiente de convergencia y no únicamente en la
+selección de una especificación espacial particular.
+
+\begin{table}[H]
+\centering
+\caption{Resultados de los modelos globales y espaciales}
+\label{tab:modelos_regresion}
+\scriptsize
+\resizebox{\textwidth}{!}{
+\begin{tabular}{llrrrrrr}
+\toprule
+\textbf{Variable} &
+\textbf{Modelo} &
+\textbf{$\beta$ inicial} &
+\textbf{$p(\beta)$} &
+\textbf{Rezago inicial} &
+\textbf{$p$ rezago} &
+\textbf{$\lambda$} &
+\textbf{AIC} \\
+\midrule
+\multirow{5}{*}{Cambio IDH}
+& OLS
+& 0.1637 & 0.0355 & --- & --- & --- & $-106.4696$ \\
+
+& SEM, banda inversa
+& 0.1712 & 0.0123 & --- & --- & $-0.3166$ & $-105.2509$ \\
+
+& Durbin-SEM, banda inversa
+& 0.1698 & 0.0139 & 0.0317 & 0.8515 & $-0.3321$ & $-103.2841$ \\
+
+& SEM, queen
+& 0.1882 & 0.0063 & --- & --- & $-0.3117$ & $-105.3478$ \\
+
+& Durbin-SEM, queen
+& 0.1782 & 0.0064 & 0.2782 & 0.0710 & $-0.4470$ & $-106.2370$ \\
+\midrule
+\multirow{5}{*}{Cambio $\ln$ PBIpc}
+& OLS
+& $-0.3282$ & 0.0004 & --- & --- & --- & 2.3566 \\
+
+& SEM, banda inversa
+& $-0.3666$ & $<0.001$ & --- & --- & 0.3036 & 3.2253 \\
+
+& Durbin-SEM, banda inversa
+& $-0.3471$ & $<0.001$ & 0.2323 & 0.0932 & 0.1120 & 3.0383 \\
+
+& SEM, queen
+& $-0.3792$ & $<0.001$ & --- & --- & 0.6304 & $-1.3505$ \\
+
+& Durbin-SEM, queen
+& $-0.3439$ & $<0.001$ & 0.1979 & 0.2704 & 0.5564 & $-0.4129$ \\
+\bottomrule
+\end{tabular}
+}
+\begin{flushleft}
+\footnotesize
+\textit{Nota.} $\beta$ corresponde al coeficiente del nivel inicial.
+El rezago inicial representa la variable explicativa espacialmente rezagada.
+Los valores de $\lambda$ corresponden al parámetro del error espacial.
+\end{flushleft}
+\end{table}
+
+\subsection{Heterogeneidad espacial de los coeficientes}
+
+La regresión geográficamente ponderada permite evaluar si la relación entre el
+nivel inicial y el cambio acumulado varía entre departamentos. Los diagnósticos
+se presentan en la Tabla \ref{tab:diagnostico_gwr}.
+
+Para el IDH, el ancho de banda seleccionado es de aproximadamente 1919.1 km,
+equivalente a más del 100\% de la distancia máxima considerada en el
+procedimiento. Asimismo, los coeficientes locales se encuentran entre 0.1625 y
+0.1652, con un rango de apenas 0.0027. Estos resultados indican que la GWR del
+IDH se comporta prácticamente como una regresión global. No se detecta una
+heterogeneidad territorial relevante en la pendiente estimada.
+
+En el PBI per cápita relativo, el ancho de banda disminuye a 360.5 km, lo que
+representa aproximadamente 19.1\% de la distancia máxima. Los coeficientes
+locales varían entre $-0.4857$ y $-0.2771$, con un rango de 0.2086. Todos los
+coeficientes conservan signo negativo, pero la intensidad de la convergencia
+cambia entre departamentos.
+
+La existencia de coeficientes económicos negativos en todo el territorio
+confirma que la convergencia no depende únicamente de un reducido grupo de
+departamentos. Sin embargo, la magnitud más intensa en determinadas zonas
+sugiere que las condiciones productivas, la accesibilidad, la estructura
+económica y la articulación regional influyen en la velocidad con la que los
+territorios modifican su posición relativa.
+
+\begin{table}[H]
+\centering
+\caption{Diagnóstico de las regresiones geográficamente ponderadas}
+\label{tab:diagnostico_gwr}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Variable} &
+\textbf{Banda, km} &
+\textbf{Proporción máxima} &
+\textbf{$\beta$ global} &
+\textbf{$\beta$ local mínimo} &
+\textbf{$\beta$ local máximo} \\
+\midrule
+IDH
+& 1919.1 & 1.0142 & 0.1637 & 0.1625 & 0.1652 \\
+
+PBI per cápita
+& 360.5 & 0.1905 & $-0.3282$ & $-0.4857$ & $-0.2771$ \\
+\bottomrule
+\end{tabular}
+\begin{flushleft}
+\footnotesize
+\textit{Nota.} La proporción máxima relaciona el ancho de banda seleccionado
+con la distancia máxima entre los centroides departamentales.
+\end{flushleft}
+\end{table}
+
+La Figura \ref{fig:gwr_paneles} representa los coeficientes locales y los
+niveles de ajuste de las estimaciones. En el IDH se observa una superficie
+prácticamente uniforme, coherente con el reducido rango de las pendientes
+locales. En el PBI per cápita aparecen diferencias territoriales más visibles,
+aunque todos los coeficientes mantienen el signo compatible con convergencia.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.96\textwidth]{figura_4_gwr_paneles.png}
+\caption{Resultados territoriales de las regresiones geográficamente ponderadas}
+\label{fig:gwr_paneles}
+\begin{flushleft}
+\footnotesize
+\textit{Nota.} Los paneles muestran la distribución departamental del
+coeficiente local y del ajuste de las regresiones GWR para el IDH y el PBI
+real per cápita relativo.
+\end{flushleft}
+\end{figure}
+
+Debido al reducido número de observaciones, estos resultados deben
+interpretarse de manera exploratoria. Un ancho de banda amplio, como el
+obtenido para el IDH, puede reflejar una relación verdaderamente global, pero
+también puede estar asociado con una potencia estadística limitada para
+detectar variaciones locales. Por esta razón, la escasa heterogeneidad
+estimada no debe interpretarse como prueba definitiva de homogeneidad
+territorial.
+
+\subsection{Relaciones no paramétricas}
+
+La Figura \ref{fig:no_parametricas} compara la regresión lineal con los
+suavizamientos LOESS y kernel. En el IDH, las tres aproximaciones mantienen una
+relación predominantemente positiva entre el nivel inicial y el cambio
+acumulado. La coincidencia general de las curvas respalda la conclusión de
+ausencia de convergencia beta.
+
+En el PBI per cápita relativo, las estimaciones muestran una relación negativa.
+Los departamentos con una posición inicial inferior presentan, en promedio,
+una variación posterior mayor. Aunque las curvas no paramétricas revelan
+cambios moderados en la pendiente, no alteran el signo central identificado por
+los modelos globales.
+
+La comparación entre ambos indicadores demuestra que la convergencia regional
+no es un proceso uniforme entre dimensiones. La aproximación relativa del
+ingreso departamental coexistió con una dinámica distinta en desarrollo
+humano. Esto implica que los mecanismos que favorecen la reducción de las
+brechas económicas no necesariamente producen resultados equivalentes en
+educación, salud y capacidades humanas.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.96\textwidth]{figura_6_regresiones_no_parametricas.png}
+\caption{Regresiones lineales y no paramétricas de convergencia}
+\label{fig:no_parametricas}
+\begin{flushleft}
+\footnotesize
+\textit{Nota.} Se comparan la recta OLS, el suavizamiento LOESS y la regresión
+kernel para el IDH y el PBI real per cápita relativo.
+\end{flushleft}
+\end{figure}

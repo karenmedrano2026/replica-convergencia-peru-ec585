@@ -1,0 +1,78 @@
+\section{Anexos}
+
+\subsection{Distribución espacial del PBI real per cápita relativo}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.94\textwidth]{figura_A1_mapas_pbi.png}
+\caption{PBI real per cápita relativo inicial y cambio acumulado}
+\label{fig:anexo_mapas_pbi}
+\begin{flushleft}
+\footnotesize
+\textit{Nota.} El primer panel representa el logaritmo del PBI real per cápita
+relativo en 2007 y el segundo su cambio acumulado entre 2007 y 2019.
+\end{flushleft}
+\end{figure}
+
+\subsection{Dispersión espacial del PBI per cápita}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.90\textwidth]{figura_A2_moran_pbi.png}
+\caption{Diagramas de dispersión de Moran para el PBI per cápita relativo}
+\label{fig:anexo_moran_pbi}
+\begin{flushleft}
+\footnotesize
+\textit{Nota.} Los diagramas corresponden al nivel inicial y al cambio
+acumulado del indicador económico.
+\end{flushleft}
+\end{figure}
+
+\subsection{Coeficientes locales de convergencia económica}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.78\textwidth]{figura_5_gwr_beta_pbi.png}
+\caption{Distribución territorial del coeficiente local del PBI per cápita}
+\label{fig:anexo_beta_pbi}
+\begin{flushleft}
+\footnotesize
+\textit{Nota.} Los valores negativos representan convergencia beta. Una mayor
+magnitud absoluta indica una convergencia local más intensa.
+\end{flushleft}
+\end{figure}
+
+\subsection{Pruebas de dependencia espacial}
+
+\begin{table}[H]
+\centering
+\caption{Pruebas LM/RS de dependencia espacial}
+\label{tab:anexo_lm}
+\scriptsize
+\begin{tabular}{lllrr}
+\toprule
+\textbf{Variable} &
+\textbf{Matriz} &
+\textbf{Prueba} &
+\textbf{Estadístico} &
+\textbf{$p$-valor} \\
+\midrule
+Cambio IDH & Banda inversa & RS error ajustado & 0.0329 & 0.8560 \\
+Cambio IDH & Banda inversa & RS rezago ajustado & 0.0008 & 0.9770 \\
+Cambio IDH & Queen & RS error ajustado & 2.3093 & 0.1286 \\
+Cambio IDH & Queen & RS rezago ajustado & 1.8635 & 0.1722 \\
+\midrule
+Cambio $\ln$ PBIpc & Banda inversa & RS error ajustado & 4.1951 & 0.0405 \\
+Cambio $\ln$ PBIpc & Banda inversa & RS rezago ajustado & 2.9907 & 0.0837 \\
+Cambio $\ln$ PBIpc & Queen & RS error ajustado & 6.2672 & 0.0123 \\
+Cambio $\ln$ PBIpc & Queen & RS rezago ajustado & 2.9723 & 0.0847 \\
+\bottomrule
+\end{tabular}
+\begin{flushleft}
+\footnotesize
+\textit{Nota.} Las pruebas robustas permiten distinguir entre dependencia
+espacial en el error y dependencia asociada con el rezago espacial. Para el
+PBI per cápita, la evidencia se concentra principalmente en el componente de
+error.
+\end{flushleft}
+\end{table}

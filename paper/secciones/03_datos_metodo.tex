@@ -1,0 +1,442 @@
+\section{Datos y método}
+
+\subsection{Unidad de análisis y periodo}
+
+La investigación adopta un diseño cuantitativo, no experimental y longitudinal
+comparativo. La unidad de análisis corresponde a los departamentos del Perú y
+la muestra comprende 24 unidades territoriales. La Provincia Constitucional
+del Callao fue excluida debido a que la serie departamental utilizada para
+construir el producto bruto interno real no presenta un archivo separado para
+dicha jurisdicción.
+
+El periodo de análisis comprende los años 2007 y 2019. Esta ventana responde a
+la necesidad de trabajar con información comparable y metodológicamente
+homogénea para el Índice de Desarrollo Humano, el producto bruto interno real y
+la población departamental. Asimismo, 2007 coincide con el año base de la serie
+de producción regional a precios constantes, mientras que 2019 constituye el
+último año disponible en el panel principal de desarrollo humano empleado en
+la investigación.
+
+El trabajo constituye una adaptación metodológica del estudio de
+\textcite{duran2024}. La réplica conserva el análisis distributivo, la
+econometría espacial y la estimación de parámetros locales, pero ajusta el
+periodo, las unidades territoriales y las variables a la disponibilidad de
+información regional del Perú.
+
+\subsection{Fuentes de información}
+
+El producto bruto interno departamental se obtuvo de la serie de producto
+bruto interno por departamentos según actividades económicas del Instituto
+Nacional de Estadística e Informática
+\parencite{inei_pbi}. Se utilizó el Valor Agregado Bruto a precios constantes
+de 2007, expresado en miles de soles. El valor departamental fue construido a
+partir de la suma de las actividades económicas reportadas en los archivos
+correspondientes a cada territorio.
+
+La población departamental procede de las estimaciones y proyecciones de
+población del INEI \parencite{inei_poblacion}. Se empleó la población total
+estimada al 30 de junio de cada año. Esta información permitió transformar el
+Valor Agregado Bruto real en un indicador por habitante y evitar que el tamaño
+poblacional determinara directamente la comparación entre departamentos.
+
+El Índice de Desarrollo Humano fue obtenido del panel departamental
+2003--2019 publicado por el Programa de las Naciones Unidas para el Desarrollo
+\parencite{pnud_idh,pnud2019}. Se seleccionaron las observaciones
+departamentales correspondientes a 2007 y 2019 mediante los códigos territoriales
+del archivo original.
+
+La información geográfica proviene del archivo de límites departamentales
+publicado en la Plataforma Nacional de Datos Abiertos
+\parencite{limites_departamentales}. El archivo contiene los polígonos
+departamentales necesarios para elaborar los mapas y construir las matrices de
+pesos espaciales.
+
+\begin{table}[H]
+\centering
+\caption{Fuentes y variables utilizadas}
+\label{tab:fuentes_variables}
+\small
+\begin{threeparttable}
+\begin{tabular}{p{3.1cm}p{4.1cm}p{5.9cm}}
+\toprule
+\textbf{Componente} &
+\textbf{Fuente} &
+\textbf{Uso en el estudio} \\
+\midrule
+Valor Agregado Bruto real &
+Instituto Nacional de Estadística e Informática &
+Construcción del producto bruto interno real departamental a precios
+constantes de 2007. \\
+
+Población &
+Instituto Nacional de Estadística e Informática &
+Cálculo del producto bruto interno real por habitante para cada departamento. \\
+
+Índice de Desarrollo Humano &
+Programa de las Naciones Unidas para el Desarrollo &
+Medición multidimensional del desarrollo departamental en 2007 y 2019. \\
+
+Límites departamentales &
+IGN y Plataforma Nacional de Datos Abiertos &
+Elaboración de mapas y matrices de proximidad geográfica. \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize
+\item \textit{Nota.} El análisis comprende 24 departamentos. Callao fue
+excluido por la falta de una serie separada y compatible de producción
+departamental.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\subsection{Construcción de variables}
+
+El producto bruto interno real per cápita del departamento $i$ en el año $t$
+se calculó mediante:
+
+\begin{equation}
+PBIpc_{it}
+=
+\frac{VAB_{it}}{Población_{it}},
+\label{eq:pbipc}
+\end{equation}
+
+donde $VAB_{it}$ representa el Valor Agregado Bruto a precios constantes de
+2007 y $Población_{it}$ corresponde a la población departamental estimada.
+
+Para facilitar la comparación entre territorios y controlar la evolución
+agregada de la economía peruana, se construyó un indicador relativo:
+
+\begin{equation}
+PBIpc^{rel}_{it}
+=
+\frac{PBIpc_{it}}{PBIpc^{PER}_{t}},
+\label{eq:pbipc_relativo}
+\end{equation}
+
+donde $PBIpc^{PER}_{t}$ es el producto bruto interno real per cápita nacional.
+Posteriormente se aplicó el logaritmo natural:
+
+\begin{equation}
+x_{it}
+=
+\ln\left(PBIpc^{rel}_{it}\right).
+\label{eq:log_pbipc}
+\end{equation}
+
+El cambio acumulado del indicador económico se definió como:
+
+\begin{equation}
+\Delta x_i
+=
+x_{i,2019}-x_{i,2007}.
+\label{eq:cambio_pbi}
+\end{equation}
+
+Para el desarrollo humano se utilizó directamente el valor departamental del
+IDH, cuya escala se encuentra comprendida entre cero y uno. Esta decisión
+constituye una adaptación respecto del estudio original y evita realizar una
+normalización adicional sobre un indicador que ya posee una escala común. El
+cambio acumulado se calculó mediante:
+
+\begin{equation}
+\Delta IDH_i
+=
+IDH_{i,2019}-IDH_{i,2007}.
+\label{eq:cambio_idh}
+\end{equation}
+
+\begin{table}[H]
+\centering
+\caption{Definición de las variables principales}
+\label{tab:definicion_variables}
+\small
+\begin{threeparttable}
+\begin{tabular}{p{3.5cm}p{3.2cm}p{6.2cm}}
+\toprule
+\textbf{Variable} &
+\textbf{Notación} &
+\textbf{Definición} \\
+\midrule
+IDH inicial &
+$IDH_{i,2007}$ &
+Índice de Desarrollo Humano departamental en 2007. \\
+
+Cambio del IDH &
+$\Delta IDH_i$ &
+Diferencia entre el IDH de 2019 y el IDH de 2007. \\
+
+PBI per cápita relativo inicial &
+$x_{i,2007}$ &
+Logaritmo del cociente entre el PBI real per cápita departamental y el
+nacional en 2007. \\
+
+Cambio del PBI per cápita relativo &
+$\Delta x_i$ &
+Diferencia entre el logaritmo del PBI per cápita relativo de 2019 y el de
+2007. \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize
+\item \textit{Nota.} Las variables de cambio representan la variación
+acumulada durante 2007--2019.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\subsection{Análisis descriptivo y distributivo}
+
+La primera etapa comprende medidas de tendencia central, dispersión y forma de
+la distribución. Se calcularon la media, mediana, valores extremos, desviación
+estándar, coeficiente de variación, asimetría, curtosis y el estadístico de
+Jarque--Bera.
+
+El coeficiente de variación se utilizó para evaluar la dispersión relativa del
+IDH debido a que su media es positiva. En el caso del logaritmo del PBI per
+cápita relativo, la media puede ser negativa o cercana a cero; por ello, el
+coeficiente de variación no ofrece una interpretación económica adecuada. Para
+esta variable se priorizaron la desviación estándar, el rango y la forma de la
+distribución.
+
+La evolución distributiva fue complementada mediante estimaciones de densidad
+kernel. Para una variable $y$, la densidad estimada se expresa como:
+
+\begin{equation}
+\widehat{f}(y)
+=
+\frac{1}{nh}
+\sum_{i=1}^{n}
+K\left(
+\frac{y-y_i}{h}
+\right),
+\label{eq:densidad_kernel}
+\end{equation}
+
+donde $K(\cdot)$ es la función kernel, $h$ es el ancho de banda y $n$ es el
+número de departamentos. La comparación entre las densidades de 2007 y 2019
+permite identificar desplazamientos, reducción de dispersión o formación de
+agrupamientos.
+
+\subsection{Matrices de pesos espaciales}
+
+La proximidad territorial fue representada mediante tres matrices de pesos. La
+especificación principal corresponde a una banda de distancia con ponderación
+inversa. Antes de calcular las distancias, los centroides departamentales se
+transformaron a un sistema de coordenadas métricas.
+
+Los elementos de la matriz principal se definieron como:
+
+\begin{equation}
+w_{ij}
+=
+\begin{cases}
+\dfrac{1}{d_{ij}},
+& 0<d_{ij}\leq d_0, \\[0.3cm]
+0,
+& d_{ij}>d_0,
+\end{cases}
+\label{eq:matriz_distancia}
+\end{equation}
+
+donde $d_{ij}$ representa la distancia entre los centroides de los
+departamentos $i$ y $j$, mientras que $d_0$ es el umbral mínimo que garantiza
+que todas las unidades territoriales tengan al menos una conexión.
+
+La matriz fue estandarizada por filas:
+
+\begin{equation}
+w^{*}_{ij}
+=
+\frac{w_{ij}}
+{\sum_{j=1}^{n}w_{ij}}.
+\label{eq:estandarizacion_filas}
+\end{equation}
+
+Como pruebas de robustez se construyeron una matriz de contigüidad tipo
+\textit{queen}, que considera vecinos a los departamentos que comparten algún
+punto de frontera, y una matriz de los cuatro vecinos más próximos
+($k=4$). La utilización de matrices alternativas permite evaluar si los
+resultados dependen excesivamente de una definición particular de cercanía.
+
+\subsection{Autocorrelación espacial}
+
+La autocorrelación espacial global se evaluó mediante el índice de Moran:
+
+\begin{equation}
+I
+=
+\frac{n}{S_0}
+\frac{
+\sum_{i=1}^{n}
+\sum_{j=1}^{n}
+w_{ij}(y_i-\bar{y})(y_j-\bar{y})
+}{
+\sum_{i=1}^{n}(y_i-\bar{y})^2
+},
+\label{eq:moran}
+\end{equation}
+
+donde:
+
+\begin{equation}
+S_0
+=
+\sum_{i=1}^{n}
+\sum_{j=1}^{n}w_{ij}.
+\end{equation}
+
+Un valor positivo y estadísticamente significativo indica que los territorios
+con valores semejantes tienden a localizarse próximos entre sí. Un valor
+negativo significativo representa asociación entre valores territorialmente
+diferentes. Cuando el estadístico no es significativo, no se rechaza la
+hipótesis de ausencia de autocorrelación espacial global.
+
+El índice se calculó para los niveles iniciales y para los cambios acumulados
+del IDH y del PBI per cápita relativo. Los diagramas de dispersión de Moran se
+utilizaron como complemento gráfico para identificar la posición relativa de
+los departamentos en los cuadrantes alto--alto, bajo--bajo, alto--bajo y
+bajo--alto.
+
+\subsection{Convergencia beta global}
+
+La hipótesis de convergencia beta fue estimada inicialmente mediante mínimos
+cuadrados ordinarios:
+
+\begin{equation}
+\Delta y_i
+=
+\alpha
++
+\beta y_{i,2007}
++
+\varepsilon_i,
+\label{eq:ols_convergencia}
+\end{equation}
+
+donde $y_{i,2007}$ representa el nivel inicial del indicador y $\Delta y_i$ su
+cambio acumulado entre 2007 y 2019. Se estimó una ecuación para el IDH y otra
+para el logaritmo del PBI real per cápita relativo.
+
+Un coeficiente $\beta<0$ se interpreta como evidencia de convergencia beta,
+debido a que las regiones inicialmente rezagadas presentan una variación
+posterior mayor. Por el contrario, un coeficiente $\beta>0$ indica divergencia
+o persistencia acumulativa de las diferencias iniciales.
+
+Cuando el coeficiente de convergencia es negativo, la velocidad anual se
+obtiene mediante:
+
+\begin{equation}
+v
+=
+-\frac{\ln(1+\beta)}{T},
+\label{eq:velocidad_convergencia}
+\end{equation}
+
+donde $T=12$ representa la duración del periodo 2007--2019.
+
+\subsection{Diagnóstico y modelos espaciales}
+
+Luego de estimar los modelos OLS se aplicaron pruebas de multiplicadores de
+Lagrange y sus versiones robustas. Estas pruebas permiten identificar si la
+dependencia espacial se concentra en el término de error o en un rezago
+espacial.
+
+El modelo de error espacial se representa como:
+
+\begin{align}
+\Delta y
+&=
+X\beta+u, \\
+u
+&=
+\lambda Wu+\varepsilon,
+\label{eq:sem}
+\end{align}
+
+donde $W$ es la matriz de pesos espaciales, $\lambda$ mide la dependencia entre
+los errores regionales y $\varepsilon$ es un término aleatorio independiente.
+
+También se estimó una especificación Durbin de error:
+
+\begin{align}
+\Delta y
+&=
+\alpha
++
+\beta y_{2007}
++
+\theta Wy_{2007}
++
+u, \\
+u
+&=
+\lambda Wu+\varepsilon,
+\label{eq:durbin_sem}
+\end{align}
+
+donde $Wy_{2007}$ representa el rezago espacial del nivel inicial. Esta
+especificación permite evaluar si las condiciones iniciales de los territorios
+vecinos están asociadas con el cambio observado en cada departamento.
+
+La selección entre modelos consideró la significancia estadística de los
+parámetros espaciales, los resultados de las pruebas LM/RS, el criterio de
+información de Akaike y la estabilidad del coeficiente de convergencia. Las
+matrices de distancia inversa y contigüidad queen fueron comparadas como parte
+del análisis de robustez.
+
+\subsection{Regresión geográficamente ponderada}
+
+La posible variación territorial del proceso de convergencia se examinó
+mediante regresiones geográficamente ponderadas. El modelo local se expresa
+como:
+
+\begin{equation}
+\Delta y_i
+=
+\alpha(u_i,v_i)
++
+\beta(u_i,v_i)y_{i,2007}
++
+\varepsilon_i,
+\label{eq:gwr}
+\end{equation}
+
+donde $(u_i,v_i)$ representa la ubicación geográfica del departamento $i$.
+A diferencia del modelo global, la GWR estima un intercepto y un coeficiente
+específicos para cada territorio.
+
+Las observaciones cercanas reciben una ponderación mayor que las más distantes.
+El ancho de banda fue seleccionado mediante validación cruzada, buscando
+minimizar el error de predicción fuera de muestra. Se utilizó un kernel
+geográfico continuo para evitar cambios abruptos en la ponderación entre
+departamentos.
+
+La interpretación se concentró en el rango de los coeficientes locales, su
+distribución cartográfica y la comparación con el coeficiente global. Un rango
+local reducido y un ancho de banda próximo a la distancia máxima sugieren que
+la relación es esencialmente global. Un rango amplio y un ancho de banda menor
+indican una mayor heterogeneidad territorial.
+
+Debido a que la muestra contiene únicamente 24 departamentos, la GWR se
+interpreta como una herramienta exploratoria. La amplitud limitada de la
+muestra reduce la potencia para detectar variaciones locales y puede producir
+estimaciones sensibles al ancho de banda.
+
+\subsection{Regresiones no paramétricas y reproducibilidad}
+
+Finalmente, la relación entre el nivel inicial y el cambio acumulado fue
+representada mediante una recta OLS, un suavizamiento LOESS y una regresión
+kernel. Estas estimaciones permiten examinar posibles relaciones no lineales
+que podrían quedar ocultas en un coeficiente promedio.
+
+El análisis no paramétrico se emplea con fines descriptivos y no se interpreta
+como evidencia causal. Su función es comprobar si la dirección de la relación
+global se mantiene a lo largo de la distribución o si aparecen cambios de
+pendiente en determinados niveles iniciales.
+
+El procesamiento de la información, la construcción de las matrices, las
+estimaciones econométricas y la generación de figuras se realizaron en un
+cuaderno reproducible. Los datos procesados, el código, las tablas y las
+figuras se encuentran organizados en el repositorio digital del proyecto.

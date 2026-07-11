@@ -1,0 +1,166 @@
+\section{Discusión}
+
+La dimensión que se utilice para medir las diferencias territoriales cambia
+por completo la lectura de la convergencia regional en el Perú. El PBI real
+per cápita relativo exhibe una relación negativa y estadísticamente
+significativa entre el nivel inicial y el cambio acumulado; el IDH, en
+cambio, exhibe el signo contrario. Durante 2007--2019, los departamentos se
+acercaron entre sí en términos económicos sin que esa aproximación tuviera
+una contraparte equivalente en desarrollo humano.
+ 
+Ingreso y bienestar multidimensional rara vez avanzan al mismo compás. Un
+territorio puede incrementar su producción por habitante sin que ese
+crecimiento se traduzca de inmediato en mejores logros educativos, mejores
+condiciones de salud o mayores oportunidades; esa traducción depende de la
+provisión de servicios públicos, la infraestructura social, la calidad
+institucional y la manera en que cada departamento distribuye internamente
+sus recursos. El enfoque de capacidades sitúa precisamente ahí el punto
+central: el crecimiento económico es un medio para ampliar las libertades de
+la población, no una medida suficiente del desarrollo en sí misma
+\parencite{sen1999}.
+ 
+Que el coeficiente de variación del IDH haya disminuido podría interpretarse,
+a primera vista, como una aproximación relativa entre departamentos. El signo
+positivo del coeficiente beta obliga a matizar esa lectura: los territorios
+que partían con niveles más altos también fueron los que más avanzaron. No
+hay contradicción entre ambos resultados, porque responden a preguntas
+distintas. La convergencia sigma describe cómo evoluciona la dispersión total
+de la distribución; la convergencia beta pregunta si la posición inicial
+predice el cambio posterior. Una distribución puede volverse menos dispersa
+en términos relativos y, al mismo tiempo, conservar una ventaja dinámica para
+quienes ya estaban mejor posicionados.
+ 
+Esta distinción recupera un argumento planteado tempranamente por
+\textcite{quah1993}: reducir la dinámica regional a un único coeficiente
+puede ocultar más de lo que revela. Las densidades kernel, los mapas y las
+regresiones no paramétricas de este estudio muestran precisamente eso: el
+promedio nacional no resume el proceso departamental. El IDH mejoró en
+términos agregados, pero las trayectorias individuales se mantuvieron
+desiguales, con una relación positiva entre el punto de partida y el avance
+posterior.
+ 
+El coeficiente OLS de $-0.3282$ estimado para el PBI real per cápita
+relativo, junto con la velocidad anual implícita de 3.3\%, constituye
+evidencia de convergencia económica, aunque de un tipo particular: una
+reducción de las posiciones relativas, no una igualación de niveles
+absolutos. Los departamentos que partían rezagados mejoraron en promedio con
+mayor rapidez que los que partían adelantados, sin que ello implicara el
+cierre completo de las brechas productivas hacia el final del periodo.
+ 
+La caída de la desviación estándar del indicador económico —de 0.6193 a
+0.4750— respalda esta lectura y confirma una menor dispersión departamental.
+Los valores extremos, sin embargo, siguen distantes entre sí, lo que revela
+diferencias todavía relevantes en productividad, estructura sectorial y
+capacidad de generación de ingresos. La convergencia observada es, en ese
+sentido, un proceso parcial más que la desaparición de las desigualdades
+regionales.
+ 
+La literatura peruana sobre el tema anticipa buena parte de este patrón: las
+conclusiones sobre convergencia dependen del periodo analizado, la variable
+elegida y el método de estimación. \textcite{gonzales_trelles2004} ya habían
+subrayado el peso de las diferencias territoriales y de la geografía
+económica en la evolución regional; \textcite{palomino_rodriguez2019}
+incorporaron la dependencia espacial al estudio del crecimiento
+departamental; \textcite{pazparedes2023}, por su parte, identificó
+trayectorias agrupadas y factores estructurales detrás de los clubes
+regionales.
+ 
+Ningún patrón espacial global resultó significativo para los niveles
+iniciales ni para los cambios acumulados, lo que indica que los
+departamentos con valores parecidos no se concentran de manera sistemática
+en el territorio bajo las matrices empleadas. Eso no equivale a decir que el
+espacio carezca de importancia: las pruebas LM, los modelos espaciales y la
+GWR muestran que su relevancia cambia según el indicador y la definición de
+vecindad que se utilice.
+ 
+Para el IDH, los modelos espaciales conservan el signo positivo del
+coeficiente inicial sin que los parámetros de error espacial ofrezcan
+evidencia suficiente para desplazar al modelo OLS. El ancho de banda de la
+GWR se aproxima además a la distancia máxima entre departamentos, y el rango
+de los coeficientes locales es mínimo —señales que, en conjunto, apuntan a
+una relación predominantemente global entre el nivel inicial del IDH y su
+variación posterior.
+ 
+Conviene, no obstante, ser cautelosos con esa lectura. Un ancho de banda tan
+elevado puede reflejar una relación genuinamente homogénea en el territorio,
+pero también puede ser síntoma de la limitada capacidad de una muestra de 24
+departamentos para detectar variaciones locales. El resultado no demuestra,
+entonces, que las dinámicas del desarrollo humano sean idénticas en todo el
+país; solamente indica que la GWR empleada aquí no logra identificar
+diferencias relevantes en la pendiente estimada.
+ 
+La heterogeneidad espacial resulta bastante más visible en el PBI per
+cápita relativo. Los coeficientes locales oscilan entre $-0.4857$ y
+$-0.2771$ y conservan signo negativo en los 24 departamentos: hay
+convergencia económica en todo el territorio, aunque su intensidad varía de
+un lugar a otro. Este hallazgo coincide con lo planteado por
+\textcite{duran2024}, para quienes los coeficientes globales pueden esconder
+diferencias espaciales relevantes en la velocidad y la magnitud de la
+convergencia.
+ 
+También merece atención la sensibilidad de los modelos económicos frente a
+la matriz espacial utilizada. La banda de distancia inversa no mejora el
+criterio de información respecto del OLS, mientras que el SEM basado en
+contigüidad queen sí presenta un AIC menor. Algunas pruebas robustas
+detectan además dependencia en el componente de error, lo que sugiere que
+las perturbaciones económicas comparten factores territoriales omitidos
+entre departamentos vecinos —aunque la evidencia no es completamente
+estable entre especificaciones.
+ 
+Estas diferencias entre matrices no son un simple problema técnico. La
+contigüidad captura vínculos fronterizos directos; la distancia inversa
+asume que la interacción decae de forma continua conforme aumenta la
+separación geográfica. En un territorio marcado por barreras naturales,
+infraestructura desigual y conexiones económicas que no siempre coinciden
+con la cercanía física, cada matriz termina representando un mecanismo de
+interacción distinto.
+ 
+En términos de política pública, una estrategia centrada únicamente en el
+crecimiento económico regional difícilmente cerraría las brechas de
+desarrollo humano. La convergencia del ingreso relativo necesita
+complementarse con intervenciones en educación, salud, conectividad, empleo
+de calidad y acceso a servicios básicos; la asignación de recursos debería
+considerar tanto las condiciones iniciales de cada departamento como su
+capacidad para transformar el crecimiento productivo en bienestar efectivo.
+ 
+La heterogeneidad detectada en la convergencia económica pone en cuestión,
+además, la aplicación uniforme de políticas regionales. Departamentos con
+una convergencia más débil podrían requerir instrumentos específicos de
+diversificación productiva, infraestructura logística y fortalecimiento del
+capital humano, mientras que los vínculos entre territorios vecinos
+justifican mecanismos de coordinación interdepartamental en transporte,
+mercados, corredores productivos y provisión de servicios.
+ 
+\subsection{Limitaciones del estudio}
+ 
+El tamaño de la muestra es la limitación más evidente: 24 departamentos
+restringen la potencia de las pruebas espaciales y de las regresiones
+geográficamente ponderadas, por lo que los resultados locales deben leerse
+como evidencia exploratoria y no como parámetros estructurales definitivos.
+ 
+El nivel de agregación departamental plantea una segunda limitación, porque
+puede esconder desigualdades internas entre provincias, distritos, zonas
+urbanas y rurales. Dos departamentos con un promedio similar podrían
+albergar distribuciones internas muy distintas; trabajos futuros con
+información comparable podrían descender a unidades territoriales más
+pequeñas.
+ 
+Trabajar con dos momentos en el tiempo —2007 y 2019— permite estimar una
+trayectoria acumulada, pero deja fuera las fluctuaciones intermedias. Un
+panel anual habría permitido estimar efectos dinámicos, controlar
+características no observadas y examinar cambios en la velocidad de
+convergencia a lo largo del periodo.
+ 
+También corresponde señalar una adaptación metodológica puntual: el IDH se
+empleó directamente en su escala de cero a uno, en lugar de aplicar la
+transformación utilizada en el estudio de referencia. La decisión facilita
+la interpretación de los resultados, aunque limita la comparabilidad exacta
+con otras réplicas del mismo ejercicio.
+ 
+Por último, los modelos de convergencia incorporan únicamente el nivel
+inicial como variable explicativa. Inversión pública, educación,
+infraestructura, estructura productiva, urbanización, minería,
+transferencias fiscales y calidad institucional podrían explicar una parte
+adicional de las diferencias departamentales; su ausencia implica que los
+resultados obtenidos identifican asociaciones de convergencia y no
+relaciones causales.

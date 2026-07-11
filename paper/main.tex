@@ -1,0 +1,149 @@
+\documentclass[12pt,a4paper]{article}
+
+% ============================================================
+% IDIOMA Y TIPOGRAFÍA
+% ============================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{csquotes}
+
+\addto\captionsspanish{%
+  \renewcommand{\tablename}{Tabla}%
+  \renewcommand{\figurename}{Figura}%
+}
+
+% ============================================================
+% FORMATO DE PÁGINA
+% ============================================================
+\usepackage[
+  top=2.54cm,
+  bottom=2.54cm,
+  left=2.54cm,
+  right=2.54cm
+]{geometry}
+
+\usepackage{setspace}
+\setstretch{1.15}
+
+\setlength{\parindent}{1.27cm}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{3em}
+
+% ============================================================
+% MATEMÁTICA, TABLAS Y FIGURAS
+% ============================================================
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{threeparttable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{xurl}
+
+\graphicspath{{../figures/}}
+
+\usepackage{caption}
+\captionsetup{
+  font=small,
+  labelfont=bf,
+  labelsep=newline,
+  justification=raggedright,
+  singlelinecheck=false,
+  skip=5pt
+}
+
+\setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+
+% ============================================================
+% BIBLIOGRAFÍA APA 7
+% ============================================================
+\usepackage[
+  backend=biber,
+  style=apa,
+  sorting=nyt,
+  sortcites=true,
+  maxcitenames=2,
+  maxbibnames=20
+]{biblatex}
+
+\DeclareLanguageMapping{spanish}{spanish-apa}
+
+\DefineBibliographyStrings{spanish}{
+  andothers = {et\addabbrvspace al\adddot}
+}
+
+\addbibresource{referencias.bib}
+\setlength{\bibitemsep}{0.5\baselineskip}
+
+% ============================================================
+% ENCABEZADO Y PIE DE PÁGINA
+% ============================================================
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[L]{\footnotesize\itshape Convergencia regional en el Perú}
+\fancyhead[R]{\footnotesize Karen A. Medrano Valenzuela}
+
+\fancyfoot[C]{\small\thepage}
+
+\setlength{\headheight}{15pt}
+\setlength{\footskip}{26pt}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% ============================================================
+% ENLACES
+% ============================================================
+\usepackage[hidelinks]{hyperref}
+\urlstyle{same}
+
+% ============================================================
+% DOCUMENTO
+% ============================================================
+\begin{document}
+
+\thispagestyle{plain}
+
+\begin{center}
+{\Large\bfseries
+Disparidades socioeconómicas y convergencia regional en el Perú:
+un análisis de heterogeneidad espacial, 2007--2019
+\par}
+
+\vspace{0.6em}
+
+{\normalsize Karen Aymé Medrano Valenzuela\par}
+{\normalsize Universidad Nacional de San Cristóbal de Huamanga\par}
+{\normalsize Facultad de Ciencias Económicas, Administrativas y Contables\par}
+\end{center}
+
+\vspace{0.5em}
+
+\input{secciones/00_resumen}
+\input{secciones/01_introduccion}
+\input{secciones/02_revision_literatura}
+\input{secciones/03_datos_metodo}
+\input{secciones/04_resultados}
+\input{secciones/05_discusion}
+\input{secciones/06_conclusiones}
+
+\printbibliography[
+  heading=bibintoc,
+  title={Referencias}
+]
+
+\appendix
+\input{secciones/07_anexos}
+
+\end{document}
